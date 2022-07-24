@@ -19,6 +19,7 @@ class Item:
 
     @property
     # Property Decorator = Read-Only Attribute
+    # If __ then = Private Attribute
     def name(self):
         return self.__name
 

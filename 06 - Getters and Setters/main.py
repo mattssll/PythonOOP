@@ -7,3 +7,4 @@ item1.name = "OtherItem"
 
 # Getting an Attribute
 print(item1.name)
+print(item1)

@@ -24,11 +24,11 @@ class Item:
         self.price = self.price * self.pay_rate
 
     @classmethod
-    def instantiate_from_csv(cls):
-        with open('items.csv', 'r') as f:
+    def instantiate_from_csv(cls, file_path):
+        with open(file_path, 'r') as f:
             reader = csv.DictReader(f)
             items = list(reader)
-
+        # append to list happens on __init__
         for item in items:
             Item(
                 name=item.get('name'),
@@ -49,4 +49,12 @@ class Item:
             return False
 
     def __repr__(self):
-        return f"Item('{self.name}', {self.price}, {self.quantity})"
+        return f"Item('{self.name}', {self.price}, {self.quantity})\n"
+
+
+def main():
+    Item.instantiate_from_csv('./codesnippets/items.csv')
+    print(Item.all)
+
+if __name__ == '__main__':
+    main()
